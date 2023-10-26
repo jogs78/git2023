@@ -48,7 +48,7 @@
                                     </svg>
                                 </div>
 
-                                <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">Documentación</h2>
+                                <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">Documentación (recuerda que esta en inglés)</h2>
 
                                 <p class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
                                     Aqui podrás encontrar documentacion (en inglés, pero eso que no te detenga)
