@@ -66,10 +66,10 @@
                                     </svg>
                                 </div>
 
-                                <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">Laracasts</h2>
+                                <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">Ozuna Ramirez </h2>
 
                                 <p class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                                    Video tutoriales de LARAVEL (en inglés)
+                                    lo mejor de laravel (en inglés)
                                 </p>
                             </div>
 
@@ -86,10 +86,10 @@
                                     </svg>
                                 </div>
 
-                                <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">Carlitos grocery the lowest prices in Nuevo Leon</h2>
+                                <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">Area de franco</h2>
 
                                 <p class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                                    ¿Fue editado por carlos manuel ozuna ramirez?.
+                                    ¿...?.
                                 </p>
                             </div>
 
