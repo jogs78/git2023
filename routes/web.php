@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\CarroController;
+use App\Models\Carro;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('carros',[CarroController::class,"leerTodos"])->name('carros-Todos');
+Route::get('carros-nuevo',[CarroController::class,"formularioNuevo"])->name('carros-nuevo');
+Route::post('carros-guardar',[CarroController::class, "guardar"])->name('carros-guardar');
