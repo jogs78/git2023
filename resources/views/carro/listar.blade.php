@@ -12,13 +12,30 @@
             <th>placas</th>
             <th>descripcion</th>
             <th>precio</th>
+            <th>borrar</th>
+
         </thead>
         <tbody>
             @forelse ($todos as $uno)
             <tr>
-                <td>{{$uno->placas}}</td>
-                <td>{{$uno->descripcion}}</td>
+                <td>
+                    <a href="{{route('carros-modificar', $uno->placas)}}">
+                        {{$uno->placas}}
+                    </a>
+                </td>
+                <td>
+                    <a href="{{route('carros-Uno', $uno->placas)}}">
+                        {{$uno->descripcion}}
+                    </a>
+                </td>
                 <td>{{$uno->precio}}</td>
+                <td>
+                    <form action="{{route('carros-borrar',$uno->placas)}}" method="post">
+                        @csrf
+                        @method('DELETE')
+                        <input type="submit" value="X">
+                    </form>
+                </td>
             </tr>
         @empty
         <tr>

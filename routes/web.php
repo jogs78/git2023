@@ -19,6 +19,21 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('carros',[CarroController::class,"leerTodos"])->name('carros-Todos');
+
+//CREATE
 Route::get('carros-nuevo',[CarroController::class,"formularioNuevo"])->name('carros-nuevo');
 Route::post('carros-guardar',[CarroController::class, "guardar"])->name('carros-guardar');
+
+//READ all
+Route::get('carros',[CarroController::class,"leerTodos"])->name('carros-Todos');
+//READ one
+Route::get('carros\{cual}',[CarroController::class,"leerUno"])->name('carros-Uno');
+
+//UPDATE
+Route::get('carros-modificar\{cual}',[CarroController::class,"formularioModificar"])->name('carros-modificar');
+Route::post('carros-actualizar\{cual}',[CarroController::class, "actualizar"])->name('carros-actualizar');
+
+//DELETE
+Route::delete('carros-borrar\{cual}',[CarroController::class, "borrar"])->name('carros-borrar');
+
+

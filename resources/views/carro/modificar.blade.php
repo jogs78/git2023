@@ -7,12 +7,12 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="{{route('carros-guardar')}}" method="post"><br>
+    <form action="{{route('carros-actualizar',$seleccionado->placas)}}" method="post"><br>
         @csrf
         placas: <input type="text" name="placas"  value="{{$seleccionado->placas}}"><br>
         descripcion:<input type="text"  name="descripcion" value="{{$seleccionado->descripcion}}"><br>
         precio:<input type="text" name="precio" value="{{$seleccionado->precio}}"><br>
-        <input type="submit" value="Guardar">
+        <input type="submit" value="Actualizar">
     </form>
     
 </body>
