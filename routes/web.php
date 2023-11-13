@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CarroController;
+use App\Http\Controllers\TerrenoController;
 use App\Models\Carro;
 use Illuminate\Support\Facades\Route;
 
@@ -37,3 +38,4 @@ Route::post('carros-actualizar\{cual}',[CarroController::class, "actualizar"])->
 Route::delete('carros-borrar\{cual}',[CarroController::class, "borrar"])->name('carros-borrar');
 
 
+Route::resource('terrenos',TerrenoController::class);
