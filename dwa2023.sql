@@ -23,12 +23,11 @@ DROP TABLE IF EXISTS `vehiculos`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `vehiculos` (
-  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `placas` varchar(10) NOT NULL,
   `descripcion` varchar(50) NOT NULL,
   `precio` decimal(5,0) NOT NULL,
-  UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  PRIMARY KEY (`placas`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -37,7 +36,7 @@ CREATE TABLE `vehiculos` (
 
 LOCK TABLES `vehiculos` WRITE;
 /*!40000 ALTER TABLE `vehiculos` DISABLE KEYS */;
-INSERT INTO `vehiculos` VALUES (1,'XYZ-100','Volks Wagen Sedan',1000),(3,'XYZ-102','Jeta',100),(4,'XYZ-104','Transam',100),(5,'XYZ-105','TSURU',50),(6,'XYZ-105','TSURU',50),(7,'XYZ-105','TSURU',50),(8,'ASD-125','Chevy',20),(9,'xxx-111','MERCEDES BENS',1200);
+INSERT INTO `vehiculos` VALUES ('ASD-125','Chevy',20),('XYZ-100','Volks Wagen Sedan',1000),('XYZ-102','Jeta',100),('XYZ-105','Tusu',10);
 /*!40000 ALTER TABLE `vehiculos` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -50,4 +49,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-11-08 18:46:24
+-- Dump completed on 2023-11-15 17:14:51
