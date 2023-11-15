@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CarroController;
+use App\Http\Controllers\PuertaController;
 use App\Http\Controllers\TerrenoController;
 use App\Models\Carro;
 use Illuminate\Support\Facades\Route;
@@ -20,6 +21,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('entrar',[PuertaController::class,"entrar"]);
+Route::post('revisar',[PuertaController::class, "revisar"])->name('revisar');
 
 //CREATE
 Route::get('carros-nuevo',[CarroController::class,"formularioNuevo"])->name('carros-nuevo');
