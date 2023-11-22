@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CarroController;
+use App\Http\Controllers\CasaController;
 use App\Http\Controllers\PuertaController;
 use App\Http\Controllers\TerrenoController;
 use App\Models\Carro;
@@ -42,3 +43,6 @@ Route::delete('carros-borrar\{cual}',[CarroController::class, "borrar"])->name('
 
 
 Route::resource('terrenos',TerrenoController::class);
+
+Route::resource('casas', CasaController::class);
+
