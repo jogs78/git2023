@@ -22,8 +22,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('entrar',[PuertaController::class,"entrar"]);
+Route::get('entrar',[PuertaController::class,"entrar"])->name('login');
 Route::post('revisar',[PuertaController::class, "revisar"])->name('revisar');
+Route::get('salir',[PuertaController::class,"salir"])->name('salir');
 
 //CREATE
 Route::get('carros-nuevo',[CarroController::class,"formularioNuevo"])->name('carros-nuevo');
@@ -42,7 +43,9 @@ Route::post('carros-actualizar\{cual}',[CarroController::class, "actualizar"])->
 Route::delete('carros-borrar\{cual}',[CarroController::class, "borrar"])->name('carros-borrar');
 
 
-Route::resource('terrenos',TerrenoController::class);
+Route::resource('terrenos',TerrenoController::class)->middleware('auth');
 
 Route::resource('casas', CasaController::class);
+
+
 

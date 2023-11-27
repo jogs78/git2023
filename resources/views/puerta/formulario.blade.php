@@ -8,7 +8,7 @@
 <body>
     <form action="{{route('revisar')}}" method="post">
         @csrf
-        usuario: <input type="text" name="usuario"><br>
+        Nombre de usuario: <input type="text" name="nombre_de_usuario"><br>
         clave: <input type="text" name="clave"><br>
         <input type="submit" value="Revisar">
     </form>

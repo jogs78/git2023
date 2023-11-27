@@ -7,8 +7,8 @@
     <title>Document</title>
 </head>
 <body>
+    @auth
     LISTAR LAS CASAS
-
     <table border="1">
         <thead>
             <th>Direccion</th>
@@ -43,6 +43,11 @@
             @endforelse
         </tbody>
     </table>
-    <a href="{{route('casas.create')}}">AGREGAR</a>
+    <a href="{{route('casas.create')}}">AGREGAR</a>  
+    @endauth
+    @guest
+        PRIMERO DEBES INICIAR SESION
+    @endguest
+
 </body>
 </html>
