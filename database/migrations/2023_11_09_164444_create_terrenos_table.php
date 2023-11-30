@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->integer('servicio',false,true);
             $table->string("direccion");
+            $table->float('precio')->nullable()->default(null);
             $table->timestamps();
         });
     }

@@ -31,7 +31,10 @@ class PuertaController extends Controller
                 echo "bien, las claves son iguales <br>";
                 echo "ahora iniciaremos sesion <br>";
                 Auth::login($encontrado);
-                return redirect(route('casas.index'));
+                if($encontrado->tipo_de_usuario == 'vendedor')
+                    return redirect(route('terrenos.index'));
+                else
+                    return redirect(route('casas.index'));
 
             }else{
                 echo "error, las claves son diferentes <br>";
@@ -50,6 +53,7 @@ class PuertaController extends Controller
 
     public function salir(){
         Auth::logout();
+        return redirect(route('login'));
 
     }
 }

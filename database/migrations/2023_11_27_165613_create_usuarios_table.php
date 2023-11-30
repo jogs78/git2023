@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('nombre_de_usuario');
             $table->string('clave');
             $table->string('nombre_completo');
+            $table->enum('tipo_de_usuario',['vendedor','cliente'])->default('cliente');
             $table->timestamps();
         });
     }

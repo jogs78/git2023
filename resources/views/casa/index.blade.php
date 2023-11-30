@@ -6,6 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+{{ auth()->user()->nombre_completo }} (  {{ auth()->user()->tipo_de_usuario }} )
+<a href="{{route('terrenos.index')}}">LISTAR TERRENOS</a>  
+<a href="{{route('salir')}}">SALIR</a>  
+<hr>
 <body>
     @auth
     LISTAR LAS CASAS
@@ -29,11 +33,18 @@
                         </a>
                     </td>
                     <td>
-                        <form action="{{route('casas.destroy', $una->id)}}" method="post">
-                            @csrf
-                            @method('DELETE')
-                            <input type="submit" value="BORRAR">
-                        </form>
+                        @can('delete', $una)
+                            <form action="{{route('casas.destroy', $una->id)}}" method="post">
+                                @csrf
+                                @method('DELETE')
+                                <input type="submit" value="BORRAR">
+                            </form>
+                            
+                        @endcan
+
+
+
+
                     </td>
                 </tr>
             @empty
@@ -43,7 +54,12 @@
             @endforelse
         </tbody>
     </table>
-    <a href="{{route('casas.create')}}">AGREGAR</a>  
+
+    @can('create', App\Models\Casa::class)
+        <a href="{{route('casas.create')}}">AGREGAR</a>      
+    @endcan
+    
+
     @endauth
     @guest
         PRIMERO DEBES INICIAR SESION

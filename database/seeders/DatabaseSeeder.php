@@ -14,7 +14,10 @@ class DatabaseSeeder extends Seeder
     {
         $this->call( 
             [
-                CasaSeeder::class
+                CasaSeeder::class,
+                UsuarioSeeder::class,
+                TerrenoSeeder::class,
+
             ]
         );
         // \App\Models\User::factory(10)->create();
@@ -22,6 +25,10 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
-        // ]);
+        // ]);        
     }
+
+    
+
+
 }

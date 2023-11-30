@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('direccion');
             $table->string('codigo_postal');
+            $table->float('precio')->nullable()->default(null);
             $table->timestamps();
         });
     }

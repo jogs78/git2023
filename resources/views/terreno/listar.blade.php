@@ -7,6 +7,11 @@
     <title>Document</title>
 </head>
 <body>
+        {{ auth()->user()->nombre_completo }} (  {{ auth()->user()->tipo_de_usuario }} )
+        <a href="{{route('casas.index')}}">LISTAR CASAS</a>  
+        <a href="{{route('salir')}}">SALIR</a>     
+<hr>
+
     <table border="1">
         <thead>
             <th>Numero de servicio</th>
@@ -28,12 +33,17 @@
                     </a>
                 </td>
                 <td>
-                     <form action="{{route('terrenos.destroy',$uno->id)}}" method="post">
-                        @csrf
-                        @method('DELETE')
-                        <input type="submit" value="X">
-                    </form>
+
+                    @can('delete', $uno)
+                        <form action="{{route('terrenos.destroy',$uno->id)}}" method="post">
+                            @csrf
+                            @method('DELETE')
+                            <input type="submit" value="X">
+                        </form>
+                    @endcan
+
                 </td>
+
             </tr>
         @empty
         <tr>
@@ -43,7 +53,9 @@
         @endforelse
         </tbody>
     </table>
+    @can('create', App\Models\Terreno::class)
+        si quieres agregar has click <a href="{{route('terrenos.create')}}">aqui</a>        
+    @endcan
 
-    si quieres agregar has click <a href="{{route('terrenos.create')}}">aqui</a>
 </body>
 </html>
