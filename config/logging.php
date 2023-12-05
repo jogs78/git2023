@@ -126,6 +126,17 @@ return [
         'emergency' => [
             'path' => storage_path('logs/laravel.log'),
         ],
+
+        'sistema' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/sistema.log'),
+
+//            'driver' => 'monolog',
+//            'path' => storage_path('logs/sistema.log'),
+//            'handler' => env('LOG_PAPERTRAIL_HANDLER', SyslogUdpHandler::class),
+
+        ],
+
     ],
 
 ];

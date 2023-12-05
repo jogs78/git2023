@@ -6,6 +6,7 @@ use App\Models\Usuario;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
 
 
@@ -17,27 +18,36 @@ class PuertaController extends Controller
     }
 
     public function revisar(Request $request){
-       echo "aqui revisaremos lo que llegue en el " . $request->input('nombre_de_usuario') . "<br>";
-       $encontrado = Usuario::where('nombre_de_usuario',$request->input('nombre_de_usuario'))->first();
+        $usuario = $request->input('nombre_de_usuario');
+//        Log::channel('sistema')->info("aqui revisaremos lo que llegue en el " . $usuario);
+
+
+       $encontrado = Usuario::where('nombre_de_usuario',$usuario)->first();
         if(is_null($encontrado)) {
-            echo "no encontrado" . "<br>";
+            
+            Log::channel('sistema')->warning(" intento de ($usuario) dese " . $request->ip());
+            return redirect()->back();
         }else{
 
             $calve_en_bd =$encontrado->clave;
             $clave_en_formulario = $request->input('clave');
-            echo "revisemos la contraseña" . "<br>";
+  //          Log::channel('sistema')->info ( "revisemos la contraseña");
 
             if(Hash::check($clave_en_formulario,$calve_en_bd) ){
-                echo "bien, las claves son iguales <br>";
-                echo "ahora iniciaremos sesion <br>";
+
+                Log::channel('sistema')->info ( "Entro: " . $usuario);
+                
                 Auth::login($encontrado);
                 if($encontrado->tipo_de_usuario == 'vendedor')
+
                     return redirect(route('terrenos.index'));
                 else
                     return redirect(route('casas.index'));
 
             }else{
-                echo "error, las claves son diferentes <br>";
+                Log::channel('sistema')->error ( "Intento fallido para: " . $usuario);
+
+                return redirect()->back();
             }
 
 /*
