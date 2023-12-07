@@ -28,10 +28,17 @@
                     </a>
                 </td>
                 <td>
-                    <a href="{{route('terrenos.edit',$uno->id)}}">
-                        {{$uno->direccion}}
-                    </a>
+                    
+                    @can('update', $uno)
+                        <a href="{{route('terrenos.edit',$uno->id)}}">
+                            {{$uno->direccion}}
+                        </a>
+                    @else
+                        NO PUEDE EDITAR SOLO MOSTAR 
+                    @endcan
+
                 </td>
+
                 <td>
 
                     @can('delete', $uno)

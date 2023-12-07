@@ -58,12 +58,16 @@
     @can('create', App\Models\Casa::class)
         <a href="{{route('casas.create')}}">AGREGAR</a>      
     @endcan
-    
 
-    @endauth
-    @guest
-        PRIMERO DEBES INICIAR SESION
-    @endguest
+
+    @can('Administrar')
+        <button>IR AL PANEL DE ADMINISTRACION</button>    
+    
+    @endcan
+@endauth
+@guest
+    PRIMERO DEBES INICIAR SESION
+@endguest
 
 </body>
 </html>

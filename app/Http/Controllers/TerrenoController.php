@@ -52,7 +52,13 @@ class TerrenoController extends Controller
      */
     public function edit(Terreno $terreno)
     {
-        return view('terreno.editar',compact('terreno'));
+        try {
+            $this->authorize('update', $terreno);
+            return view('terreno.editar',compact('terreno'));
+        } catch (\Throwable $th) {
+            return redirect(route('terrenos.index'));
+        }
+
     }
 
     /**

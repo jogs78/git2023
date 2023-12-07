@@ -38,7 +38,11 @@ class TerrenoPolicy
      */
     public function update(Usuario $usuario, Terreno $terreno): bool
     {
-        //
+        if($usuario->tipo_de_usuario == 'vendedor' ){
+                return true;
+        } else {
+            return false;
+        }
     }
 
     /**
