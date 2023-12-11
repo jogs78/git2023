@@ -37,7 +37,7 @@
                             <form action="{{route('casas.destroy', $una->id)}}" method="post">
                                 @csrf
                                 @method('DELETE')
-                                <input type="submit" value="BORRAR">
+                                <input type="submit" value="ELIMINAR">
                             </form>
                             
                         @endcan
