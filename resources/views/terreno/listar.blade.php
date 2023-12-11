@@ -45,7 +45,7 @@
                         <form action="{{route('terrenos.destroy',$uno->id)}}" method="post">
                             @csrf
                             @method('DELETE')
-                            <input type="submit" value="X">
+                            <input type="submit" value="Eliminar">
                         </form>
                     @endcan
 
