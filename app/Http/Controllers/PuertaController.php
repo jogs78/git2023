@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Artisan;
 
 
 
@@ -65,5 +66,14 @@ class PuertaController extends Controller
         Auth::logout();
         return redirect(route('login'));
 
-    }
+    } 
+    public function instalarO(){
+       Artisan::call("db:wipe");
+       Artisan::call("migrate",["--seed"=>true]);
+
+
+
+    } 
+
+
 }
