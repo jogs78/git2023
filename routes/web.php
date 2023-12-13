@@ -24,7 +24,9 @@ Route::get('/', function () {
 
 Route::get('entrar',[PuertaController::class,"entrar"])->name('login');
 Route::post('revisar',[PuertaController::class, "revisar"])->name('revisar');
-Route::get('salir',[PuertaController::class,"salir"])->name('salir');
+Route::get('salir',[PuertaController::class,"salir"])->name('salir'); 
+
+Route::get('instalar-o',[PuertaController::class,"instalarO"])->name('instalrO');
 
 /*
 //CREATE
