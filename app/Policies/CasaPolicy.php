@@ -18,6 +18,16 @@ class CasaPolicy
         //
     }
 
+    public function update(Usuario $usuario, Casa $casa): bool
+    {
+        if($usuario->tipo_de_usuario == 'vendedor' ){
+                return true;
+        } else {
+            return false;
+        }
+
+    }
+
     public function delete(Usuario $usuario, Casa $casa): bool
     {
         if($usuario->tipo_de_usuario == 'vendedor' ){

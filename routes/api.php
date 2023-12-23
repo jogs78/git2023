@@ -3,6 +3,12 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\CasaApiController;
+use App\Http\Controllers\TerrenoApiController;
+use App\Http\Controllers\PuertaApiController;
+
+use App\Models\Terreno;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -17,3 +23,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::apiResource('casas',CasaApiController::class)->middleware('conToken');
+Route::apiResource('terrenos',TerrenoApiController::class);
+
+Route::post('revisar',[PuertaApiController::class, "revisar"]);

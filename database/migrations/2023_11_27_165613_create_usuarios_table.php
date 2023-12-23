@@ -17,6 +17,8 @@ return new class extends Migration
             $table->string('clave');
             $table->string('nombre_completo');
             $table->enum('tipo_de_usuario',['vendedor','cliente'])->default('cliente');
+            $table->string('token')->unique()->nullable()->default(null);
+            $table->bigInteger('expiracion',false,true)->nullable()->default(null);
             $table->timestamps();
         });
     }

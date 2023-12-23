@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Terreno extends Model
 {
     use HasFactory;
-    protected $fillable = ['servicio','direccion'];
+    protected $fillable = ['servicio','direccion','precio'];
 }

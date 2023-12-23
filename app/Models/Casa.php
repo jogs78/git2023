@@ -8,6 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Casa extends Model
 {
     use HasFactory;
-    protected $fillable = ['direccion','codigo_postal'];
+    protected $fillable = ['direccion','codigo_postal','precio'];
+    protected $hidden = [
+        'created_at',
+        'updated_at',
+    ];
 
 }
